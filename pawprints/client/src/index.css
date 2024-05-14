@@ -6,9 +6,7 @@ body,
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
-/* background-image: url('./assets/images/Pawsbackground.png'); */
-background: radial-gradient(circle, #cbe6f867 0%, #8aaec653 65%), url('./assets/images/Pawsbackground.png');
-
+  background: radial-gradient(circle, #cbe6f867 0%, #8aaec653 65%), url('./assets/images/Pawsbackground.png');
   background-size: cover;
 }
 
