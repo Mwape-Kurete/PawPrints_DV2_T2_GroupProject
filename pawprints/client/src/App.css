@@ -40,7 +40,7 @@ body {
   display: flex;
 }
 
-/*Timeline Code*/
+/*IMAGE CONTAINER*/
 .image-container {
   display: flex;
   flex-direction: column;
@@ -51,8 +51,8 @@ body {
 }
 
 .row img {
-  width: 20%; /* Adjust the width as needed */
-  margin: 5px; /* Adjust margin as needed */
+  width: 20%; 
+  margin: 5px;
 }
 
 
