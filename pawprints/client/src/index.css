@@ -1,0 +1,25 @@
+/* Global styles for HTML, body, and root */
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #cbe6f867 0%, #8aaec653 65%), url('./assets/images/Pawsbackground.png');
+  background-size: cover;
+}
+
+/* App styles */
+.app {
+  display: flex;
+  position: relative;
+}
+
+h1 {
+  color: #0095D5;
+}
+
+h5 {
+  color: #464646;
+}
