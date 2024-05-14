@@ -1,13 +1,26 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global styles for HTML, body, and root */
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-image: './assets/images/Pawsbackground.png';
+  background: radial-gradient(circle, #CBE6F8 0%, #8AAEC6 65%), url('assets/images/Pawsbackground.png') no-repeat right top;
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* App styles */
+.app {
+  display: flex;
+  position: relative;
+}
+
+h1 {
+  color: #0095D5;
+}
+
+h5 {
+  color: #464646;
 }
