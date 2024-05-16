@@ -1,0 +1,12 @@
+.approvals-page {
+    padding: 20px;
+    width: 80vw;
+    padding-left: 20vw;
+  }
+  
+  .approvals-list {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
