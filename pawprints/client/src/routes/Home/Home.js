@@ -1,12 +1,19 @@
 import React from "react";
 import "./Home.css";
-import Navbar from "../../components/Navbar/Navbar";
+import HeroImage from "../../components/HeroImage/HeroImage";
+import backgroundImage from "../../assets/images/Cover-image.png";
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
-      <h1>Home</h1>
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+      }}
+    >
+      <HeroImage />
     </div>
   );
 };
