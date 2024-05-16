@@ -1,0 +1,47 @@
+/* Gallery.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+.singleLineImageContainer {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.image {
+  background-color: #EDF2F7;
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Adjusted to the original size */
+  height: 200px; /* Adjusted to the original size */
+  margin-right: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  border-radius: 20px; /* Added border-radius back */
+}
+
+.image-link {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.icon-name {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Luckiest Guy', cursive;
+  color: #464646;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.image:last-child {
+  margin-right: 0;
+}

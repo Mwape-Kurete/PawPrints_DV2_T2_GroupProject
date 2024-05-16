@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import HeroImage from "../../components/HeroImage/HeroImage";
 import backgroundImage from "../../assets/images/Cover-image.png";
-
+import ImageGallery from "../../components/ImageGallery/ImageGallery";
 const Home = () => {
   return (
     <div
@@ -14,6 +14,7 @@ const Home = () => {
       }}
     >
       <HeroImage />
+      <ImageGallery />
     </div>
   );
 };
