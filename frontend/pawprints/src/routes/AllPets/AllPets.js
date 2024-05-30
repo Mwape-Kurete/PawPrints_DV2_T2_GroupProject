@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AllPets.css";
 import NavBar from "../../components/Navbar/Navbar";
+import PetCard from "../../components/PetCard/PetCard"; // Import the PetCard component
 
 const AllPets = () => {
   const [pets, setPets] = useState([]);
@@ -34,9 +35,9 @@ const AllPets = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar /> {/* Include the Navbar component */}
       <div className="all-pets">
-        <h2>All Pets</h2>
+        <h2>Pawfect Matches</h2>
         <div className="filter-buttons">
           {/* Filter buttons */}
           <button onClick={() => handleFilter("All")}>All</button>
@@ -50,14 +51,10 @@ const AllPets = () => {
         <div className="pet-cards">
           {/* Display filtered pets */}
           {filteredPets.map((pet) => (
-            <div key={pet._id} className="pet-card">
-              <h3>{pet.name}</h3>
-              <p>Type: {pet.animalType}</p>
-              <p>Age: {pet.age}</p>
-              <p>Breed: {pet.breed}</p>
-              <p>Sex: {pet.sex}</p>
-              <p>Colour: {pet.colour}</p>
-            </div>
+            <PetCard
+              key={pet._id}
+              pet={pet}
+            /> /* Render PetCard component for each pet */
           ))}
         </div>
       </div>
