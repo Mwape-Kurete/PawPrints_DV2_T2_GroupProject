@@ -9,7 +9,6 @@ export default function HeroImage() {
         <div className="mask">
           <div className="hero-text-container">
             <h1 className="mb-3 main-heading">Find Your Furry Soulmate</h1>
-
             <p className="mb-3">
               Welcome to PawPrints, where finding your perfect furry companion
               is just a swipe away! Our innovative platform connects animal

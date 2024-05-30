@@ -20,7 +20,7 @@ const AllPets = () => {
 
   return (
     <div>
-      <NavBar /> {/* Include the NavBar component */}
+      <NavBar />
       <div className="all-pets">
         <h2>All Pets</h2>
         <div className="pet-cards">
