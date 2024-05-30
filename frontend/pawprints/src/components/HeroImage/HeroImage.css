@@ -25,12 +25,20 @@
 }
 
 .hero-text-container h1 {
+  
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .hero-text-container p {
   font-size: 1.2rem;
-  color: white;
+  color: #2D3238;
   margin: 0;
+}
+
+.main-heading {
+  font-family: 'Luckiest Guy', cursive;
+  font-weight: normal;
+  color: #0095D5;
+  font-size: 100px;
 }
