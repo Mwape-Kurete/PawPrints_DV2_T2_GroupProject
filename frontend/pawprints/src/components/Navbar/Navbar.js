@@ -23,15 +23,14 @@ const Navbar = () => {
             <div className="links">
                 <Link to="/home" className="link">Home</Link>
                 <Link to="/upload-pet" className="link">Upload a Pet</Link>
-                <Link to="/contact" className="link">Contact Us</Link>
-                {user ? (
-                    <Link to="/profile" className="link">Profile</Link>
-                ) : (
-                    <Link to="/" className="link">Login</Link>
-                )}
-                <Link to="/wishlist" className="link">
+                <Link to="/all-pets" className="link">
+                    Pet Matching
+                    </Link>
+                {/* <Link to="/contact" className="link">Contact Us</Link> */}
+                
+                {/* <Link to="/wishlist" className="link">
                     <img className="icon" src={wishlistIcon} alt="Wishlist Icon" style={{ width: '20px', height: '20px' }} />
-                </Link>
+                </Link> */}
                 <Link to="/checkout" className="link">
                     <img className="icon" src={checkoutIcon} alt="Checkout Icon" style={{ width: '20px', height: '20px' }} />
                 </Link>

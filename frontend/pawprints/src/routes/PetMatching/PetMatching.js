@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import PetCard from "../../components/PetCard/PetCard"; // Import PetCard
+import Navbar from "../../components/Navbar/Navbar";
 import "./PetMatching.css";
 
 const PetMatching = () => {
@@ -28,7 +29,9 @@ const PetMatching = () => {
     if (type === "all") {
       setFilteredPets(allPets);
     } else {
-      const filtered = allPets.filter((pet) => pet.animalType.toLowerCase() === type.toLowerCase());
+      const filtered = allPets.filter(
+        (pet) => pet.animalType.toLowerCase() === type.toLowerCase()
+      );
       setFilteredPets(filtered);
     }
   };
@@ -39,6 +42,7 @@ const PetMatching = () => {
 
   return (
     <div className="pet-matching">
+      <Navbar/>
       <h2>Matching Pets - {type.charAt(0).toUpperCase() + type.slice(1)}</h2>
       <div className="filter-buttons">
         <button onClick={() => handleFilter("all")}>All</button>
