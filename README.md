@@ -81,23 +81,23 @@ npm start
 Navigate to `http://localhost:3000` to use the application.
 
 ## Usage
-### Registration and Login
+#### Registration and Login
 
 Users can register and log in to the application. Admins are identified by their email domain (@ppadmin.com).
 
-### Uploading Pet Listings
+#### Uploading Pet Listings
 
 Registered users can upload pet listings with details such as name, type, age, breed, sex, color, and image.
 
-### Liking and Commenting
+#### Liking and Commenting
 
 Users can like and comment on pet listings. Comments include the user's name and comment text.
 
-### Adopting Pets
+#### Adopting Pets
 
 Users can adopt pets, which changes the pet's status to adopted and records the adopting user's details.
 
-### Admin Functions
+#### Admin Functions
 
 Admins can approve pet listings and manage users.
 
