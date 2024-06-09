@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
- import axios from "axios";
- import "./AllPets.css";
- import NavBar from "../../components/Navbar/Navbar";
- import PetCard from "../../components/PetCard/PetCard"; // Import the PetCard component
+import axios from "axios";
+import "./AllPets.css";
+import NavBar from "../../components/Navbar/Navbar";
+import PetCard from "../../components/PetCard/PetCard"; // Import the PetCard component
 
- const AllPets = () => {
-   const [pets, setPets] = useState([]);
+const AllPets = () => {
+  const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
+  const [userId, setUserId] = useState('');
+
   useEffect(() => {
     const fetchPets = async () => {
       try {
@@ -21,8 +23,18 @@ import React, { useState, useEffect } from "react";
         console.error("Error fetching pets", error);
       }
     };
+
+    const fetchUserId = () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user && user._id) {
+        setUserId(user._id);
+      }
+    };
+
     fetchPets();
+    fetchUserId();
   }, []);
+
   // Function to filter pets based on animal type
   const handleFilter = (animalType) => {
     if (animalType === "All") {
@@ -35,14 +47,14 @@ import React, { useState, useEffect } from "react";
     }
   };
 
-   return (
-     <div>
-       <NavBar /> {/* Include the Navbar component */}
-       <div className="all-pets">
-         <h2>Pawfect Matches</h2>
-         <div className="filter-buttons">
-           {/* Filter buttons */}
-           <button onClick={() => handleFilter("All")}>All</button>
+  return (
+    <div>
+      <NavBar /> {/* Include the Navbar component */}
+      <div className="all-pets">
+        <h2>Pawfect Matches</h2>
+        <div className="filter-buttons">
+          {/* Filter buttons */}
+          <button onClick={() => handleFilter("All")}>All</button>
           <button onClick={() => handleFilter("Dog")}>Dogs</button>
           <button onClick={() => handleFilter("Cat")}>Cats</button>
           <button onClick={() => handleFilter("Rabbit")}>Rabbits</button>
@@ -50,17 +62,19 @@ import React, { useState, useEffect } from "react";
           <button onClick={() => handleFilter("Reptile")}>Reptiles</button>
           <button onClick={() => handleFilter("Other")}>Other</button>
         </div>
-         <div className="pet-cards">
-           {/* Display filtered pets */}
-           {filteredPets.map((pet) => (
-             <PetCard
-               key={pet._id}
-               pet={pet}
-             /> /* Render PetCard component for each pet */
-           ))}
-         </div>
-       </div>
+        <div className="pet-cards">
+          {/* Display filtered pets */}
+          {filteredPets.map((pet) => (
+            <PetCard
+              key={pet._id}
+              pet={pet}
+              userId={userId}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+
 export default AllPets;
