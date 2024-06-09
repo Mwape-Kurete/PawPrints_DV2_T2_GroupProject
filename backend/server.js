@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const petListingRoutes = require('./routes/petListing');
 const path = require('path');
+const userRoutes = require('./routes/user');
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/petlisting', petListingRoutes);
+app.use('/api/users', userRoutes);
 
 // Start the server
 app.listen(PORT, () => {

@@ -6,7 +6,8 @@ import AdminHome from './components/AdminHome';
 import Home from './routes/Home/Home';
 import AllPets from './routes/AllPets/AllPets';
 import PetMatching from './routes/PetMatching/PetMatching';
-import PetDetails from './routes/PetDetails/PetDetails'; // Import PetDetails component
+import PetDetails from './routes/PetDetails/PetDetails'; 
+import Profile from './routes/Profile/Profile';
 
 function App() {
     return (
@@ -19,7 +20,8 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/all-pets" element={<AllPets />} />
                     <Route path="/petmatching/:type" element={<PetMatching />} />
-                    <Route path="/petdetails/:id" element={<PetDetails />} /> {/* Add route for PetDetails */}
+                    <Route path="/petdetails/:id" element={<PetDetails />} /> 
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </div>
         </Router>

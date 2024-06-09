@@ -3,11 +3,15 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Welcome from './Welcome';
 import Approvals from './Approvals';
 import './AdminHome.css'; // Import the CSS file
+import logo from '../assets/logoLatest/PPLogo.svg';
 
 const AdminHome = () => {
     return (
         <div className="admin-container">
+            
             <div className="sidebar">
+                <img className="logoImg" src={logo} alt="Logo" />
+                    
                 <ul>
                     <li><Link to="home">Welcome</Link></li>
                     <li><Link to="approvals">Approvals</Link></li>
