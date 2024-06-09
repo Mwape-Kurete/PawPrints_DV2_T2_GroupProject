@@ -10,7 +10,6 @@ const PetDetails = () => {
     const [showComments, setShowComments] = useState(false);
     const [comments, setComments] = useState([]);
     const [likeCount, setLikeCount] = useState(0);
-    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const fetchPetDetails = async () => {
@@ -24,19 +23,18 @@ const PetDetails = () => {
             }
         };
         fetchPetDetails();
-
-        const loggedUser = JSON.parse(localStorage.getItem('user'));
-        setUser(loggedUser);
     }, [id]);
 
     const handleAdopt = async () => {
-        try {
-            await axios.put(`/api/petlisting/adopt/${id}`, { adoptedUser: user.name });
-            alert('Pet adopted successfully');
-            // Redirect or update UI to reflect the adoption
-        } catch (error) {
-            console.error('Error adopting pet', error);
-            alert('Failed to adopt pet');
+        const loggedInUser = JSON.parse(localStorage.getItem('user'));
+        if (loggedInUser && loggedInUser._id) {
+            try {
+                await axios.put(`/api/petlisting/adopt/${id}`, { userId: loggedInUser._id });
+                alert('Pet adopted successfully');
+            } catch (error) {
+                console.error('Error adopting pet', error);
+                alert('Failed to adopt pet');
+            }
         }
     };
 
@@ -71,8 +69,8 @@ const PetDetails = () => {
                             ))}
                         </div>
                     )}
-                    <button className="adopt-button" onClick={handleAdopt}>Adopt</button>
-                    <Link to="/home" className='beckHomeLink'>Back to Home</Link>
+                    <button onClick={handleAdopt}>Adopt</button>
+                    <Link to="/home">Back to Home</Link>
                 </>
             ) : (
                 <p>Loading...</p>

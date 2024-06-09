@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Approvals.css'; // Import the CSS file
+import ApprovalItem from './ApprovalItem';
+import './Approvals.css';
 
 const Approvals = () => {
     const [listings, setListings] = useState([]);
@@ -26,37 +27,28 @@ const Approvals = () => {
         }
     };
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`/api/petlisting/${id}`);
+            setListings(listings.filter(listing => listing._id !== id));
+        } catch (error) {
+            console.error('Error deleting listing', error);
+        }
+    };
+
     return (
         <div className="approvals-container">
             <h2>Unapproved Pet Listings</h2>
-            <table className="approvals-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Animal Type</th>
-                        <th>Age</th>
-                        <th>Breed</th>
-                        <th>Sex</th>
-                        <th>Colour</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {listings.map(listing => (
-                        <tr key={listing._id}>
-                            <td>{listing.name}</td>
-                            <td>{listing.animalType}</td>
-                            <td>{listing.age}</td>
-                            <td>{listing.breed}</td>
-                            <td>{listing.sex}</td>
-                            <td>{listing.colour}</td>
-                            <td>
-                                <button className="approve-button" onClick={() => handleApprove(listing._id)}>Approve</button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="approvals-grid">
+                {listings.map(listing => (
+                    <ApprovalItem
+                        key={listing._id}
+                        listing={listing}
+                        onApprove={handleApprove}
+                        onDelete={handleDelete}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

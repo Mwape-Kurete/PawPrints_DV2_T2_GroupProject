@@ -40,11 +40,11 @@ router.get('/pets/liked/:id', async (req, res) => {
     }
 });
 
-// Get adopted pets by user ID
+// Get user's adopted pets
 router.get('/pets/adopted/:id', async (req, res) => {
     try {
-        const pets = await PetListing.find({ adoptedUser: req.params.id });
-        res.json(pets);
+        const adoptedPets = await PetListing.find({ adoptedUser: req.params.id });
+        res.json(adoptedPets);
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server error');

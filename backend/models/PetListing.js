@@ -17,7 +17,7 @@ const PetListingSchema = new mongoose.Schema({
     userListed: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     approved: { type: Boolean, default: false },
     adoptedStatus: { type: Boolean, default: false }, 
-    adoptedUser: { type: String }, 
+    adoptedUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
 module.exports = mongoose.model('PetListing', PetListingSchema);

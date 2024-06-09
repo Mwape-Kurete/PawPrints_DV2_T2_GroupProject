@@ -121,7 +121,7 @@ router.post('/like/:id', async (req, res) => {
     }
 });
 
-// Comment on a pet listing
+// Add a comment to a pet listing
 router.post('/comment/:id', async (req, res) => {
     const { userId, comment } = req.body;
     try {
@@ -148,7 +148,8 @@ router.post('/comment/:id', async (req, res) => {
 
 // Adopt a pet
 router.put('/adopt/:id', async (req, res) => {
-    const { adoptedUser } = req.body;
+    const { userId } = req.body;
+
     try {
         const listing = await PetListing.findById(req.params.id);
         if (!listing) {
@@ -156,7 +157,7 @@ router.put('/adopt/:id', async (req, res) => {
         }
 
         listing.adoptedStatus = true;
-        listing.adoptedUser = adoptedUser;
+        listing.adoptedUser = userId; // Set adoptedUser to userId
         await listing.save();
 
         res.json({ message: 'Pet adopted successfully' });
@@ -166,5 +167,20 @@ router.put('/adopt/:id', async (req, res) => {
     }
 });
 
+// Delete a pet listing
+router.delete('/:id', async (req, res) => {
+    try {
+        const listing = await PetListing.findById(req.params.id);
+        if (!listing) {
+            return res.status(404).json({ message: 'Listing not found' });
+        }
+
+        await PetListing.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Listing deleted' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server error');
+    }
+});
 
 module.exports = router;

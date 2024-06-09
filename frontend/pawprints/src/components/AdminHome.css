@@ -12,6 +12,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    height: 200vh;
 }
 
 .sidebar ul {
@@ -59,5 +60,24 @@
     color: #34495e;
     font-size: 16px;
     line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar a, .logout-buttonB {
+    color: #34495e;
+    text-decoration: none;
+    font-size: 30px;
+    transition: color 0.3s;
+    text-align: center;
+    width: 100%;
+    font-weight: 400;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 30vh;
+}
+
+.sidebar a:hover, .logout-button:hover {
+    color: #3eaeff;
     font-family: 'Poppins', sans-serif;
 }

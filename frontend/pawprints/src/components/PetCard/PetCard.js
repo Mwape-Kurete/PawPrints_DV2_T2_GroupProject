@@ -46,7 +46,7 @@ const PetCard = ({ pet, userId }) => {
         />
         <div className="pCard_text">
           <h3>{pet.name}</h3>
-          <p className="hidden">Type: {pet.animalType}</p>{" "}
+          <p className="hidden">Type: {pet.animalType}</p>
           <p>Colour: {pet.colour}</p>
         </div>
       </div>
