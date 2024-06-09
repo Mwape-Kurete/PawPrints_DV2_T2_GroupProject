@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const petListingRoutes = require('./routes/petListing');
+const path = require('path');
 
 dotenv.config();
 
@@ -28,3 +29,5 @@ app.use('/api/petlisting', petListingRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

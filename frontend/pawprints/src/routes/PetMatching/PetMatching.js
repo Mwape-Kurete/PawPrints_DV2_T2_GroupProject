@@ -15,9 +15,11 @@ const PetMatching = () => {
     const fetchPets = async () => {
       try {
         const response = await axios.get("/api/petlisting");
-        const approvedPets = response.data.filter((pet) => pet.approved);
-        setPets(approvedPets);
-        filterPets(approvedPets, type.toLowerCase());
+        const filteredPets = response.data
+          .filter((pet) => pet.approved)
+          .filter((pet) => pet.adoptedStatus === false);
+        setPets(filteredPets);
+        filterPets(filteredPets, type.toLowerCase());
       } catch (error) {
         console.error("Error fetching pets", error);
       }
