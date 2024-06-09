@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './PetDetails.css';
+import Navbar from '../../components/Navbar/Navbar';
 
 const PetDetails = () => {
     const { id } = useParams();
@@ -24,10 +25,31 @@ const PetDetails = () => {
         fetchPetDetails();
     }, [id]);
 
+    const handleAdopt = async () => {
+        const loggedInUser = JSON.parse(localStorage.getItem('user'));
+        if (loggedInUser && loggedInUser._id) {
+            try {
+                await axios.put(`/api/petlisting/adopt/${id}`, { userId: loggedInUser._id });
+                alert('Pet adopted successfully');
+            } catch (error) {
+                console.error('Error adopting pet', error);
+                alert('Failed to adopt pet');
+            }
+        }
+    };
+
     return (
-        <div className="pet-details-container">
+        <div className='petDetailsHousing'>
+            <Navbar/>
+            <div className="pet-details-container">
+            
             {pet ? (
                 <>
+                    <img
+                    src={pet.imageURL || "placeholder.jpg"}
+                    alt={`${pet.name}`}
+                    className="pet-image"
+                    />
                     <h2>{pet.name}</h2>
                     <p>Type: {pet.animalType}</p>
                     <p>Age: {pet.age}</p>
@@ -47,12 +69,15 @@ const PetDetails = () => {
                             ))}
                         </div>
                     )}
+                    <button onClick={handleAdopt}>Adopt</button>
                     <Link to="/home">Back to Home</Link>
                 </>
             ) : (
                 <p>Loading...</p>
             )}
         </div>
+    </div>
+        
     );
 };
 

@@ -11,8 +11,12 @@ import React, { useState, useEffect } from "react";
     const fetchPets = async () => {
       try {
         const response = await axios.get("/api/petlisting");
-        setPets(response.data);
-        setFilteredPets(response.data); // Initially set filtered pets to all pets
+        setPets(response.data
+            .filter((pet) => pet.approved)
+            .filter((pet) => pet.adoptedStatus === false));
+        setFilteredPets(response.data
+            .filter((pet) => pet.approved)
+            .filter((pet) => pet.adoptedStatus === false)); // Initially set filtered pets to all pets
       } catch (error) {
         console.error("Error fetching pets", error);
       }

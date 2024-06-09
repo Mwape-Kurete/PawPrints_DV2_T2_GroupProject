@@ -52,3 +52,19 @@
     margin: 0;
     font-size: 14px;
 }
+
+.petDetailsHousing{
+    background-color: rgba(118, 191, 255, 0.282);
+    height: fit-content;
+    padding-bottom: 30px;
+    
+}
+
+.beckHomeLink{
+    color: #0056b3;
+    height: 30px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin-top: 20px !important;
+    
+}

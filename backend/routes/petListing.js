@@ -1,15 +1,31 @@
 const express = require('express');
 const PetListing = require('../models/PetListing');
 const User = require('../models/User');
+const upload = require('../middelware/upload'); 
 
 const router = express.Router();
 
+// Image upload route
+router.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+      if (err) {
+        res.status(400).json({ msg: err });
+      } else {
+        if (req.file == undefined) {
+          res.status(400).json({ msg: 'No file selected' });
+        } else {
+          res.json({ filePath: `/uploads/${req.file.filename}` });
+        }
+      }
+    });
+  });
+
 // Create a new pet listing
 router.post('/add', async (req, res) => {
-    const { name, animalType, age, breed, sex, colour, userListed } = req.body;
+    const { name, animalType, age, breed, sex, colour, userListed, imageURL } = req.body;
 
     try {
-        const newPetListing = new PetListing({ name, animalType, age, breed, sex, colour, userListed });
+        const newPetListing = new PetListing({ name, animalType, age, breed, sex, colour, userListed, imageURL });
         await newPetListing.save();
 
         // Update the user's petsListed array
@@ -105,7 +121,7 @@ router.post('/like/:id', async (req, res) => {
     }
 });
 
-// Comment on a pet listing
+// Add a comment to a pet listing
 router.post('/comment/:id', async (req, res) => {
     const { userId, comment } = req.body;
     try {
@@ -124,6 +140,43 @@ router.post('/comment/:id', async (req, res) => {
         await listing.save();
 
         res.json({ message: 'Comment added successfully' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Adopt a pet
+router.put('/adopt/:id', async (req, res) => {
+    const { userId } = req.body;
+
+    try {
+        const listing = await PetListing.findById(req.params.id);
+        if (!listing) {
+            return res.status(404).json({ message: 'Listing not found' });
+        }
+
+        listing.adoptedStatus = true;
+        listing.adoptedUser = userId; // Set adoptedUser to userId
+        await listing.save();
+
+        res.json({ message: 'Pet adopted successfully' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Delete a pet listing
+router.delete('/:id', async (req, res) => {
+    try {
+        const listing = await PetListing.findById(req.params.id);
+        if (!listing) {
+            return res.status(404).json({ message: 'Listing not found' });
+        }
+
+        await PetListing.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Listing deleted' });
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server error');

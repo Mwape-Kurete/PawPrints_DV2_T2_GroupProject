@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const petListingRoutes = require('./routes/petListing');
+const path = require('path');
+const userRoutes = require('./routes/user');
+const statsRoutes = require('./routes/stats');
+const adminUserRoutes = require('./routes/users'); 
 
 dotenv.config();
 
@@ -23,8 +27,13 @@ mongoose.connect(process.env.MONGO_URI, {
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/petlisting', petListingRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/stats', statsRoutes);
+app.use('/api/admin/users', adminUserRoutes);
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

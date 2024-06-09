@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/Navbar/Navbar';
 import backgroundImage from "../assets/images/Pawsbackground.png";
 import './UploadPet.css';
 
 const UploadPet = () => {
-    const [form, setForm] = useState({ name: '', animalType: '', age: '', breed: '', sex: '', colour: '' });
+    const [form, setForm] = useState({ name: '', animalType: '', age: '', breed: '', sex: '', colour: '', image: null });
     const [userId, setUserId] = useState('');
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -19,12 +21,33 @@ const UploadPet = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    const handleImageChange = (e) => {
+        setForm({ ...form, image: e.target.files[0] });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = { ...form, userListed: userId, animalType: form.animalType.toLowerCase() };
+            const formData = new FormData();
+            formData.append('name', form.name);
+            formData.append('animalType', form.animalType);
+            formData.append('age', form.age);
+            formData.append('breed', form.breed);
+            formData.append('sex', form.sex);
+            formData.append('colour', form.colour);
+            formData.append('image', form.image);
+            formData.append('userListed', userId);
+
+            const uploadResponse = await axios.post('/api/petlisting/upload', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+
+            const imageURL = uploadResponse.data.filePath;
+
+            const data = { ...form, userListed: userId, imageURL };
             await axios.post('/api/petlisting/add', data);
             alert('Pet listing added successfully');
+            navigate('/home'); // Redirect to home page
         } catch (error) {
             console.error('Error adding pet listing', error);
             alert('Failed to add pet listing');
@@ -62,6 +85,7 @@ const UploadPet = () => {
                         <option value="female">Female</option>
                     </select>
                     <input type="text" name="colour" placeholder="Colour" value={form.colour} onChange={handleChange} required />
+                    <input type="file" name="image" onChange={handleImageChange} required />
                     <button type="submit">Add Listing</button>
                 </form>
             </div>
