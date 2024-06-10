@@ -12,7 +12,7 @@ router.post('/add', async (req, res) => {
         const newPetListing = new PetListing({ name, animalType, age, breed, sex, colour, userListed });
         await newPetListing.save();
 
-        // Update the user's petsListed array
+        // Update the user's petsListed
         const user = await User.findById(userListed);
         user.petsListed.push(newPetListing.id);
         await user.save();
@@ -35,7 +35,7 @@ router.get('/unapproved', async (req, res) => {
     }
 });
 
-// Approve a pet listing
+// Approve pet listing
 router.put('/approve/:id', async (req, res) => {
     try {
         const listing = await PetListing.findById(req.params.id);
@@ -78,7 +78,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Like a pet listing
+// Like a pet
 router.post('/like/:id', async (req, res) => {
     const { userId } = req.body;
     try {
@@ -105,7 +105,7 @@ router.post('/like/:id', async (req, res) => {
     }
 });
 
-// Comment on a pet listing
+// Comment on a pet
 router.post('/comment/:id', async (req, res) => {
     const { userId, comment } = req.body;
     try {

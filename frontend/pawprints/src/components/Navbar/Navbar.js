@@ -10,10 +10,9 @@ const Navbar = () => {
     const user = true; // user authentication
     const urlLocation = window.location.href;
 
-    // Function to handle logout
+    // Function for logout
     const handleLogout = () => {
-        // Your logout logic here
-        // Redirect to the login page
+        // Back to the login page
         navigate('/');
     };
 

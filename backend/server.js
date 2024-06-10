@@ -20,11 +20,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-// Use routes
+// routes
 app.use('/api/auth', authRoutes);
 app.use('/api/petlisting', petListingRoutes);
 
-// Start the server
+// Start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

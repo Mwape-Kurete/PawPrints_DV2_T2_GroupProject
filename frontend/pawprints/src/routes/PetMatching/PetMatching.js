@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import PetCard from "../../components/PetCard/PetCard"; // Import PetCard
+import PetCard from "../../components/PetCard/PetCard";
 import "./PetMatching.css";
 
 const PetMatching = () => {
   const { type } = useParams();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user")); // Get the logged-in user
+  const user = JSON.parse(localStorage.getItem("user")); // Get logged-in user
 
   useEffect(() => {
     const fetchPets = async () => {

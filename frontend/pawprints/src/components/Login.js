@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Login.css';
-// import logo from '../path_to_your_logo/logo.png'; // Adjust the path to your actual logo
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +18,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    //form submission
   };
 
   return (

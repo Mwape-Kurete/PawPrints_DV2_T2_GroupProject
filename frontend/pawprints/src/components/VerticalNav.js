@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './VerticalNav.css';
-// import logo from '../path_to_your_logo/logo.png'; // Adjust the path to your actual logo
 
 const VerticalNav = () => {
   return (

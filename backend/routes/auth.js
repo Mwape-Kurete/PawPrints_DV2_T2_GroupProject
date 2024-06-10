@@ -15,7 +15,7 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        // Check if the user already exists in the User or Admin collection
+        // Check if user already exists in User or Admin
         let user = await User.findOne({ email });
         let admin = await Admin.findOne({ email });
 
@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'User already exists' });
         }
 
-        // If email ends with '@ppadmin.com', add to Admin collection
+        // If email ends with '@ppadmin.com', add to Admin
         if (email.endsWith('@ppadmin.com')) {
             const newAdmin = new Admin({ name, surname, email, password });
 
@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
             return res.json({ user: newAdmin, message: 'Admin registered successfully', redirect: '/admin/home' });
         }
 
-        // Otherwise, add to User collection
+        // Otherwise add to user
         user = new User({ name, surname, email, password, role });
 
         const salt = await bcrypt.genSalt(10);
@@ -46,7 +46,7 @@ router.post('/register', async (req, res) => {
         const payload = { user: { id: user.id } };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.json({ user, token, redirect: '/home' }); // Redirect normal users to Home
+        res.json({ user, token, redirect: '/home' }); // Redirect users to Home
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server error');
@@ -56,17 +56,17 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    // Validate request body
+    // validate request
     if (!email || !password) {
         return res.status(400).json({ message: 'Please enter all fields' });
     }
 
     try {
-        // Check if the user exists in the User or Admin collection
+        // Check if user exists in User or Admin
         let user = await User.findOne({ email });
         let admin = await Admin.findOne({ email });
 
-        // If the user is an admin
+        // If user is admin
         if (admin) {
             const isMatch = await bcrypt.compare(password, admin.password);
             if (!isMatch) {
@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
             return res.json({ user: admin, token, redirect: '/admin/home' });
         }
 
-        // If the user is a regular user
+        // If user is regular
         if (user) {
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {
@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
             return res.json({ user, token, redirect: '/home' }); // Redirect normal users to Home
         }
 
-        // If no user is found in either collection
+        // If no user is found
         return res.status(400).json({ message: 'Invalid credentials' });
     } catch (error) {
         console.error(error.message);

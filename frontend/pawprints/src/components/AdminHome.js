@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Welcome from './Welcome';
 import Approvals from './Approvals';
-import './AdminHome.css'; // Import the CSS file
+import './AdminHome.css';
 
 const AdminHome = () => {
     return (

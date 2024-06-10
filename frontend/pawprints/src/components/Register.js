@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Register.css';
-// import logo from '../path_to_your_logo/logo.png'; // Adjust the path to your actual logo
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +22,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    // form submission
   };
 
   return (

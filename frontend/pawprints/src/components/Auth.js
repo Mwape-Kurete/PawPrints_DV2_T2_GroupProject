@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Auth.css'; // Import the CSS file
+import './Auth.css';
 
 const Auth = () => {
     const [form, setForm] = useState({ name: '', surname: '', email: '', password: '', role: 'individual' });
@@ -18,13 +18,13 @@ const Auth = () => {
             const url = isLogin ? '/api/auth/login' : '/api/auth/register';
             const response = await axios.post(url, form);
 
-            // Save user info in local storage
+            // Saves user info in local storage
             const user = response.data.user;
             if (user) {
                 localStorage.setItem('user', JSON.stringify(user));
             }
 
-            // Redirect based on the response
+            // redirect if success or error
             navigate(response.data.redirect);
         } catch (error) {
             console.error('Error during authentication', error);
