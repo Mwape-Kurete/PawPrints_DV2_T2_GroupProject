@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 .hero-container {
   position: relative;
   width: 100%;
@@ -25,12 +27,14 @@
 }
 
 .hero-text-container h1 {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   margin-bottom: 10px;
+  font-family: 'Luckiest Guy', cursive;
+  color: #0095D5;
 }
 
 .hero-text-container p {
   font-size: 1.2rem;
-  color: white;
+  color: #464646;
   margin: 0;
 }
