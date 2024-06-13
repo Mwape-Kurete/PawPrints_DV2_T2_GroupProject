@@ -25,14 +25,6 @@ PawPrints is a pet adoption application built using the MERN stack (MongoDB, Exp
 ![responsive](./Mockups/Responsive-web.jpg)
 ![dashboard](./Mockups/Dashboard.jpg)
 ![Unapproved](./Mockups/CRUD.jpg)
-\
-### User-side Wireframes:
-
-![login](./Mockups/Login.jpg)
-![home](./Mockups/home.jpg)
-![responsive](./Mockups/Responsive-web.jpg)
-![dashboard](./Mockups/Dashboard.jpg)
-![Unapproved](./Mockups/CRUD.jpg)
 
 
 ## Features
@@ -52,7 +44,6 @@ PawPrints is a pet adoption application built using the MERN stack (MongoDB, Exp
 - **Node.js**: A JavaScript runtime built on Chrome's V8 engine, used to build the backend server.
 - **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js.
 - **Axios**: A promise-based HTTP client for the browser and Node.js, used to make API requests from the frontend.
-- **JWT (JSON Web Tokens)**: Used for user authentication.
 - **Bcrypt**: A library to hash passwords, used to enhance security by storing hashed passwords.
 - **Multer**: A middleware for handling multipart/form-data, used for uploading images.
 
