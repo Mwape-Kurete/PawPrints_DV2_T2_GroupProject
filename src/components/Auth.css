@@ -8,6 +8,8 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  
+
 }
 
 .auth-container {
@@ -19,32 +21,6 @@ body, html {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  text-align: center;
-}
-
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 80px; 
-  height: 80px;
-  border-radius: 0%;
-  margin: 10px 20px 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Ensures the logo scales correctly */
-  border-radius: 50%; /* Ensures the logo is circular */
 }
 
 .auth-container h2 {
@@ -104,9 +80,9 @@ body, html {
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid #0095D5;
+  border: 1px solid rgba(204, 204, 204, 0.5);
   border-radius: 6px;
-  color: #0095D5; /* Text color black */
+  color: #5499c2; /* Text color black */
   cursor: pointer;
   text-align: center;
   display: block;
@@ -117,7 +93,7 @@ body, html {
 }
 
 .switch-button:hover {
-  color: #007bb2; /* Hover color */
+  color: #4b75e9; /* Hover color */
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced outward shadow on hover */
 }
