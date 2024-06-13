@@ -1,83 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 .admin-container {
     display: flex;
     height: 100vh;
-    color: darkblue;
+    color: #464646;
     font-family: 'Poppins', sans-serif;
 }
 
 .sidebar {
     width: 250px;
-    background-color: #bcdbfa;
-    color: #34495e;
+    background-color: #464646;
+    color: #FFFFFF;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 200vh;
+    height: 100vh;
+    transition: width 0.4s;
+}
+
+.sidebar img {
+    height: 100px;
+    margin-bottom: 20px;
+    transition: opacity 0.3s;
 }
 
 .sidebar ul {
     list-style: none;
     padding: 0;
-    color: #34495e;
-    text-align: center;
+    color: #FFFFFF;
+    text-align: left;
     width: 100%;
     padding-top: 20px;
 }
 
 .sidebar li {
     margin: 15px 0;
-    color: #34495e;
+    color: #FFFFFF;
 }
 
 .sidebar a {
-    color: #34495e;
+    color: #FFFFFF;
     text-decoration: none;
-    font-size: 30px;
-    transition: color 0.3s;
-    text-align: center;
+    font-size: 16px;
+    transition: color 0.3s, background-color 0.3s;
+    text-align: left;
     width: 100%;
-    font-weight: 400;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: block;
 }
 
 .sidebar a:hover {
     color: #3eaeff;
-    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout-buttonB {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s, background-color 0.3s;
+    text-align: left;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.logout-buttonB:hover {
+    color: #3eaeff;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ecf0f1;
-    font-family: 'Poppins', sans-serif;
-}
+        flex: 1 1 auto;
+        padding: 20px;
+        background-color: #ecf0f1;
+        font-family: 'Poppins', sans-serif;
+        min-height: calc(100vh - 40px); /* Ensures the content takes full height minus padding */
+        height: auto; /* Allows the height to adjust based on content */
+        overflow: auto; /* Adds scroll bars if content overflows */
+    }
 
 .content h1 {
-    color: #2c3e50;
+    color: #0095D5;
     font-family: 'Poppins', sans-serif;
 }
 
 .content p {
-    color: #34495e;
+    color: #464646;
     font-size: 16px;
     line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
-}
-
-.sidebar a, .logout-buttonB {
-    color: #34495e;
-    text-decoration: none;
-    font-size: 30px;
-    transition: color 0.3s;
-    text-align: center;
-    width: 100%;
-    font-weight: 400;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-top: 30vh;
-}
-
-.sidebar a:hover, .logout-button:hover {
-    color: #3eaeff;
     font-family: 'Poppins', sans-serif;
 }

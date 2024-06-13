@@ -1,26 +1,50 @@
-.all-pets {
-    padding: 20px;
-}
-
-.pet-cards {
+.filter-buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add some space between the buttons */
+    margin-top: 20px;
 }
 
-.pet-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    width: 200px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+.filter-buttons button {
+    background: #0095D5;
+    box-shadow: 0 0 8px rgba(67, 110, 141, 0.37);
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 15px 26px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 8px;
+    border: 1px solid rgba(255, 255, 255, 0);
 }
 
-.pet-card h3 {
-    margin: 0;
-    font-size: 1.5em;
+.filter-buttons button:hover {
+    background: #007bb5; /* Darker tint for hover effect */
 }
 
-.pet-card p {
-    margin: 5px 0;
+.filter-buttons button.active {
+    background: #007bb5;
+    color: #FFFFFF;
+}
+
+body {
+    background: #E3F3FF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrap {
+    max-width: 784px;
+    margin: 50px auto 0;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.2;
+    color: #094067;
 }
