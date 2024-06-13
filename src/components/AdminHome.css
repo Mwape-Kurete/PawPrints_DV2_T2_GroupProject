@@ -76,11 +76,14 @@
 }
 
 .content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ecf0f1;
-    font-family: 'Poppins', sans-serif;
-}
+        flex: 1 1 auto;
+        padding: 20px;
+        background-color: #ecf0f1;
+        font-family: 'Poppins', sans-serif;
+        min-height: calc(100vh - 40px); /* Ensures the content takes full height minus padding */
+        height: auto; /* Allows the height to adjust based on content */
+        overflow: auto; /* Adds scroll bars if content overflows */
+    }
 
 .content h1 {
     color: #0095D5;

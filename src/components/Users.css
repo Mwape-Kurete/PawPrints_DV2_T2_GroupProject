@@ -1,34 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 .users-container {
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: #ecf0f1; /* Match content background color */
     text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {
     margin-bottom: 20px;
     font-size: 2.5em;
-    color: #333;
+    color: #333; /* Match heading color */
 }
 
 .users-table {
     margin: 20px auto;
     border-collapse: collapse;
-    width: 80%;
-    max-width: 800px;
+    width: 90%; /* Increased width for better appearance */
+    max-width: 1000px; /* Increased max-width */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #4c78af;
+    color: #464646; /* Match body copy color */
+    font-family: 'Poppins', sans-serif;
 }
 
 .users-table th,
 .users-table td {
     border: 1px solid #ddd;
-    padding: 12px;
+    padding: 20px; /* Increased padding */
     text-align: left;
 }
 
 .users-table th {
-    background-color: #4c78af;
+    background-color: #0095D5; /* Match button color */
     color: white;
+    font-weight: bold; /* Make headers bold */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .users-table tr:nth-child(even) {
@@ -46,6 +55,7 @@ h2 {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .delete-button:hover {
