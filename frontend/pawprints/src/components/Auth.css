@@ -1,0 +1,99 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+
+}
+
+.auth-container {
+  width: 400px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Apply the blur effect for Safari */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form input,
+.auth-form select {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: rgba(173, 216, 230, 0.5); /* Semi-transparent baby blue background */
+  color: #000; /* Text color black */
+  backdrop-filter: blur(5px); /* Blur effect */
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+.auth-form button {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Outward shadow */
+}
+
+.auth-form button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced outward shadow on hover */
+}
+
+.switch-button {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 6px;
+  color: #5499c2; /* Text color black */
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 15px auto;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Outward shadow */
+}
+
+.switch-button:hover {
+  color: #4b75e9; /* Hover color */
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced outward shadow on hover */
+}
