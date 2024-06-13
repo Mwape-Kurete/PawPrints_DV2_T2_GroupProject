@@ -18,6 +18,21 @@ PawPrints is a pet adoption application built using the MERN stack (MongoDB, Exp
 - [License](#license)
 
 ## Mockups
+### User-side Wireframes:
+
+![login](./Mockups/Login.jpg)
+![home](./Mockups/home.jpg)
+![responsive](./Mockups/Responsive-web.jpg)
+![dashboard](./Mockups/Dashboard.jpg)
+![Unapproved](./Mockups/CRUD.jpg)
+\
+### User-side Wireframes:
+
+![login](./Mockups/Login.jpg)
+![home](./Mockups/home.jpg)
+![responsive](./Mockups/Responsive-web.jpg)
+![dashboard](./Mockups/Dashboard.jpg)
+![Unapproved](./Mockups/CRUD.jpg)
 
 
 ## Features
